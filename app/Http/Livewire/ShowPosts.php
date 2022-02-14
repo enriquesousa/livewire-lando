@@ -5,7 +5,6 @@ use Livewire\Component;
 class ShowPosts extends Component
 {
     public $search;
-
     public function render()
     {
         $posts = Post::where('title', 'like', '%' . $this->search . '%')
