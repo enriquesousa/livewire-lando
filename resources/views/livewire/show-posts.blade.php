@@ -17,15 +17,52 @@
 
             {{-- si hay algún post despliega la tabla --}}
             @if ($posts->count())
-                <table class="w-full">
+                <table>
                     <thead>
-                        <tr
-                            class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
-                            <th class="px-4 py-3">ID</th>
-                            <th class="px-4 py-3">Titulo</th>
-                            <th class="px-4 py-3">Contenido</th>
-                            <th class="px-4 py-3">Acción</th>
+                        
+                        <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+                            <th scope="col" class="cursor-pointer px-4 py-3" wire:click="order('id')">
+                                ID
+                                {{-- sort --}}
+                                @if ($sort == 'id')
+                                    @if ($direction == 'asc')
+                                        <i class="fas fa-sort-alpha-up-alt"></i>
+                                    @else
+                                        <i class="fas fa-sort-alpha-down-alt"></i>
+                                    @endif
+                                @else
+                                    <i class="fas fa-sort"></i>
+                                @endif
+                            </th>
+                            <th class="cursor-pointer px-4 py-3" wire:click="order('title')">
+                                Titulo
+                                {{-- sort --}}
+                                @if ($sort == 'title')
+                                    @if ($direction == 'asc')
+                                        <i class="fas fa-sort-alpha-up-alt"></i>
+                                    @else
+                                        <i class="fas fa-sort-alpha-down-alt"></i>
+                                    @endif
+                                @else
+                                    <i class="fas fa-sort"></i>
+                                @endif
+                            </th>
+                            <th scope="col" class="cursor-pointer px-4 py-3" wire:click="order('content')">
+                                Contenido
+                                {{-- sort --}}
+                                @if ($sort == 'content')
+                                    @if ($direction == 'asc')
+                                        <i class="fas fa-sort-alpha-up-alt"></i>
+                                    @else
+                                        <i class="fas fa-sort-alpha-down-alt"></i>
+                                    @endif
+                                @else
+                                    <i class="fas fa-sort"></i>
+                                @endif 
+                            </th>
+                            <th scope="col" class="px-4 py-3">Acción</th>
                         </tr>
+
                     </thead>
                     <tbody class="bg-white">
 
