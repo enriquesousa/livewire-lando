@@ -7,12 +7,12 @@ use Livewire\Component;
 
 class CreatePost extends Component
 {
-    public $open = false;
+    public $open = true;
     public $title, $content;
 
     protected $rules = [
-        'title' => 'required|max:10',
-        'content' => 'required|max:150',
+        'title' => 'required',
+        'content' => 'required',
     ];
 
     public function render()
@@ -22,6 +22,7 @@ class CreatePost extends Component
 
     public function save()
     {
+        sleep(1);
         $this->validate();
 
         // Agregar registro a la tabla posts
@@ -38,10 +39,10 @@ class CreatePost extends Component
 
 
     // se ejecuta cada vez que cambia una de las propiedades title or content
-    public function updated($propertyName)
-    {
-        // cada vez que se da una letra checa si cumple con las reglas de validación
-        $this->validateOnly($propertyName);
-    }
+    // public function updated($propertyName)
+    // {
+    //     // cada vez que se da una letra checa si cumple con las reglas de validación
+    //     $this->validateOnly($propertyName);
+    // }
 
 }
