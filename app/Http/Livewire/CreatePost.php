@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class CreatePost extends Component
 {
-    public $open = \true;
+    public $open = false;
     public $title, $content;
 
     public function render()
@@ -16,9 +16,16 @@ class CreatePost extends Component
     }
 
     public function save(){
+        // Agregar registro a la tabla posts
         Post::create([
             'title' => $this->title,
             'content' => $this->content,
         ]);
+
+        $this->reset(['open','title','content']);
+
+        $this->emitTo('show-posts','renderiza');
+        $this->emit('alerta', 'El Post se creó satisfactoriamente');
+
     }
 }

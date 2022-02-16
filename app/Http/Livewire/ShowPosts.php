@@ -8,6 +8,9 @@ class ShowPosts extends Component
     public $sort = 'id';
     public $direction = 'desc';
 
+    //Cuando escuches el evento renderiza ejecuta el método render
+    protected $listeners = ['renderiza' => 'render'];
+
     public function render()
     {
         $posts = Post::where('title', 'like', '%' . $this->search . '%')

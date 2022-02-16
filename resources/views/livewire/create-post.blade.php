@@ -14,12 +14,10 @@
             <div class="mb-4">
                 <x-jet-label value="Título del Post"></x-jet-label>
                 <x-jet-input type="text" class="w-full" wire:model.defer="title"></x-jet-input>
-                {{ $title }}
             </div>
             <div class="mb-4">
                 <x-jet-label value="Contenido del Post"></x-jet-label>
                 <textarea wire:model.defer="content" class="form-control w-full" rows="6"></textarea>
-                {{ $content }}
             </div>
         </x-slot>
 
