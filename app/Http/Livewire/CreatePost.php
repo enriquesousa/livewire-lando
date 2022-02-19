@@ -10,7 +10,7 @@ class CreatePost extends Component
 {
     use WithFileUploads;
 
-    public $open = true;
+    public $open = false; // para indicar si la ventana modal de CreatePost esta visible o no
     public $title, $content, $image, $identificador;
 
     protected $rules = [
@@ -32,7 +32,7 @@ class CreatePost extends Component
         $this->validate();
 
         // guardar la imagen en carpeta public/posts
-        $image_url = $this->image->store('posts');
+        $image_url = $this->image->store('public/posts');
 
         // Agregar registro a la tabla posts
         Post::create([
